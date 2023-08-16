@@ -1,4 +1,5 @@
 import "./Login.css";
+import SignUp from "../SignUp/SignUp";
 
 const Login = () => {
   function test() {
@@ -27,7 +28,7 @@ const Login = () => {
           onClick={test}
         ></input>
       </div>
-      
+      <SignUp />
     </div>
   );
 };
