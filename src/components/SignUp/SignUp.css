@@ -1,0 +1,7 @@
+:root {
+  --orange: rgb(236, 132, 100);
+}
+
+#signup {
+  color: var(--orange);
+}
