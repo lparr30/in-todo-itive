@@ -1,11 +1,15 @@
-
+:root {
+  --orange: rgb(236, 132, 100);
+  --green: rgb(180, 220, 132);
+  --lightGreen: rgb(210, 255, 155);
+}
 
 .login-container {
-  color: rgb(220, 139, 64);
+  color: var(--orange);
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 100vh;
+  min-height: 95vh;
 }
 
 .login-welcome {
@@ -60,8 +64,12 @@
   text-align: center;
 }
 
+#username:hover, #password:hover {
+  background-color: rgb(108, 108, 108);
+}
+
 #login-submit {
-  background-color: rgb(212, 21, 171);
+  background-color: var(--green);
   width: 10em;
   height: 2em;
   border-radius: 7px;
@@ -71,7 +79,7 @@
 }
 
 #login-submit:hover {
-  background-color: rgb(231, 38, 189);
+  background-color: var(--lightGreen);
 }
 
 ::placeholder {
@@ -80,9 +88,9 @@
 
 #account,
 #sign-up {
-  color: rgb(212, 21, 171);
+  color: var(--green);
 }
 
 #sign-up:hover {
-  color: rgb(231, 38, 189);
+  color: var(--lightGreen);
 }
