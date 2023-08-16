@@ -1,0 +1,9 @@
+:root {
+    --orange: rgb(236, 132, 100);
+    --green: rgb(180, 220, 132);
+    --lightGreen: rgb(210, 255, 155);
+  }
+
+#test {
+    color: var(--green);
+}
