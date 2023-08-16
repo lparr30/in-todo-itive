@@ -2,9 +2,9 @@ import "./Login.css";
 import SignUp from "../SignUp/SignUp";
 
 const Login = () => {
-  function test() {
-    console.log("i got clicked!");
-  }
+  // function test() {
+  //   console.log("i got clicked!");
+  // }
 
   return (
     <div className="login-container">
@@ -25,7 +25,7 @@ const Login = () => {
           id="login-submit"
           type="submit"
           value="Submit"
-          onClick={test}
+          // onClick={test}
         ></input>
       </div>
       <SignUp />
