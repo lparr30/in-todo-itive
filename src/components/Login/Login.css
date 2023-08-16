@@ -1,8 +1,9 @@
 :root {
   --orange: rgb(236, 132, 100);
   --lightOrange: rgb(230, 155, 132);
-  --green: rgb(180, 220, 132);
-  --lightGreen: rgb(210, 255, 155);
+  /* --green: rgb(180, 220, 132);
+  --lightGreen: rgb(210, 255, 155); */
+  --beige: rgb(252, 236, 204);
 }
 
 .login-container {
@@ -52,22 +53,25 @@
   text-align: center;
 }
 
-#username:hover, #password:hover {
+#username:hover,
+#password:hover {
   background-color: rgb(35, 35, 35);
 }
 
 #login-submit {
-  background-color: var(--orange);
+  background-color: black;
+  border: 1px solid var(--orange);
+  color: var(--orange);
   width: 10em;
   height: 2em;
   border-radius: 7px;
-  border: none;
+  /* border: none; */
   margin-top: 1em;
   cursor: pointer;
 }
 
 #login-submit:hover {
-  background-color: var(--lightOrange);
+  background-color: rgb(30, 30, 30);
 }
 
 ::placeholder {
