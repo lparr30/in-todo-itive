@@ -1,12 +1,14 @@
 import { styled } from "styled-components";
+import ChangeView from "../../components/ChangeView";
 
-const Lable = styled.h1 `
+const Label = styled.h1 `
     color: yellow;
 `
 
 const DayView = () => {return(
     <div>
-        <Lable>day view</Lable>
+        <Label>day view</Label>
+        {/* <ChangeView path='/' view='WeekView' /> */}
     </div>
 )}
 

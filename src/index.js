@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { createBrowserRouter, Route, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import WeekView from "./pages/WeekView/WeekView";
 import DayView from "./pages/DayView/DayView";
+import Notes from "./pages/Notes";
 
 const router = createBrowserRouter([
   {
@@ -11,14 +12,14 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        // index: true,
-        // element:
-      }, {
-        path: '/weekview',
+        index: true,
         element: <WeekView />
       }, {
         path: '/dayview',
         element: <DayView />
+      }, {
+        path: '/notes',
+        element: <Notes />
       }
     ]
   }
