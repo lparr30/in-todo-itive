@@ -1,11 +1,17 @@
-// import "./WeekView.css";
-import WeekCard from "../../components/WeekCard";
+import { styled } from "styled-components";
+import WeekCard from "../../components/WeekCard/WeekCard";
+
+const Layout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const WeekView = () => {
   return (
-    <div>
+    <Layout>
       <WeekCard />
-    </div>
+    </Layout>
   );
 };
 

@@ -1,14 +1,11 @@
 import { styled } from "styled-components";
 
 const FooterContainer = styled.footer`
-    height: 3vh;
-    padding-top: 1vh;
-    text-align: center;
-    background-color: purple;
+  // background-color: purple;
+  height: 3vh;
+  padding-top: 1vh;
+  text-align: center;
   color: rgb(236, 132, 100);
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 `;
 
 const Footer = () => {
