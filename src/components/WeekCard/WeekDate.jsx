@@ -1,18 +1,18 @@
 import { styled } from "styled-components";
 
 const DateContainer = styled.div`
-  background: pink;
+  background: none;
+  position: relative;
+  top: 10px;
   width: 32%;
-  height: 80%;
   margin-left: 2%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 `;
 
 // const DateStyles = {
-//   position: "absolute",
-//   color: 'blue',
 //   background: "none",
 //   margin: "0",
 // };
