@@ -1,9 +1,10 @@
-import "./WeekView.css";
+// import "./WeekView.css";
+import WeekCard from "../../components/WeekCard";
 
 const WeekView = () => {
   return (
     <div>
-      <h1 id="week">week view</h1>
+      <WeekCard />
     </div>
   );
 };
