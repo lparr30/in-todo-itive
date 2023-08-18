@@ -7,8 +7,8 @@ const ShowMenuContainer = styled.div`
   position: fixed;
   bottom: 12%;
   right: 0;
-  background-color: rgba(32, 34, 95, 0.687);
-  border: 1px solid var(--orange);
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid rgb(236, 132, 100);
   font-size: 1.55em;
   width: 14vw;
   height: 14vw;
@@ -18,10 +18,10 @@ const ShowMenuContainer = styled.div`
 const MenuContainer = styled.div`
   position: fixed;
   bottom: 12%;
-  right: 20%;
-  background-color: rgba(32, 34, 95, 0.687);
-  border: 1px solid var(--orange);
-  font-size: 1.55em;
+  right: 18%;
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid rgb(236, 132, 100);
+  font-size: 1.4em;
   font-style: italic;
   width: 28vw;
   height: 28vw;

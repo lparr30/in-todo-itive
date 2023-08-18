@@ -20,8 +20,7 @@ const VerticalAlign = styled.div`
 
 const Intodoitive = styled.h1`
   color: rgb(236, 132, 100);
-  margin-left: 3vw;
-  font-size: 2.25em;
+  font-size: 2.1em;
 `;
 
 const Dot = styled.span`
@@ -32,8 +31,8 @@ const Dot = styled.span`
 const ViewName = styled.h2`
   color: rgb(180, 220, 132);
   font-style: italic;
-  margin-left: 10vw;
-  font-size: 1.5em;
+  margin-left: 8vw;
+  font-size: 1.4em;
 `;
 
 const Header = () => {
