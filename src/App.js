@@ -18,7 +18,7 @@ function App() {
       <Header />
       <ChangeView />
       <Outlet />
-      <Test />
+      {/* <Test /> */}
       <Footer />
     </div>
     </>

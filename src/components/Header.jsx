@@ -25,7 +25,7 @@ const ViewName = styled.h2`
     margin-left: 20vw;
 `
 
-const Header = () => {
+const Header = ({ viewName }) => {
   return (
     <HeaderContainer>
       <Intodoitive>
@@ -36,7 +36,7 @@ const Header = () => {
         itive
       </Intodoitive>
       <ViewName>
-        Name
+        viewName
       </ViewName>
     </HeaderContainer>
   );
