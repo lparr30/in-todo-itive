@@ -7,14 +7,15 @@ const TaskCard = styled.div`
   height: 80px;
   display: flex;
   align-items: flex-start;
-  background-color: rgb(252, 220, 84);
+  // background-color: rgb(252, 220, 84);
+  background-color: ${props => props.$containerColor};
   border-radius: 20px;
   margin: 0.5em 0;
 `;
 
-const WeekCard = () => {
+const WeekCard = ({ color }) => {
   return (
-    <TaskCard>
+    <TaskCard $containerColor={color} >
       <WeekDate />
       <WeekTasks />
     </TaskCard>

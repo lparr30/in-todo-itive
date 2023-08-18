@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import WeekCard from "../../components/WeekCard/WeekCard";
+import colors from "../../assets/colors";
 
 const Layout = styled.div`
   display: flex;
@@ -10,7 +11,11 @@ const Layout = styled.div`
 const WeekView = () => {
   return (
     <Layout>
-      <WeekCard />
+      {colors.map(item => {
+        return(
+          <WeekCard key={item.id} color={item.rgb}/>
+        )
+      })}
     </Layout>
   );
 };

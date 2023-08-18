@@ -11,11 +11,6 @@ const DateContainer = styled.div`
   justify-content: center;
 `;
 
-// const DateStyles = {
-//   background: "none",
-//   margin: "0",
-// };
-
 const DateNum = styled.p`
   background: none;
   margin: 0;
