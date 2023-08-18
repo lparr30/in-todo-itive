@@ -1,12 +1,14 @@
 import { styled } from "styled-components";
+import { useLocation } from "react-router-dom";
+import { click } from "@testing-library/user-event/dist/click";
 
 const HeaderContainer = styled.div`
-    height: 7.5vh;
+    height: 5vh;
     position: sticky;
+    padding-bottom: 4%;
     top: 0;
     display: flex;
     align-items: baseline;
-    // justify-content: space-evenly;
 `
 
 const Intodoitive = styled.h1`
@@ -23,9 +25,19 @@ const ViewName = styled.h2`
     color: rgb(180, 220, 132);
     font-style: italic;
     margin-left: 20vw;
+
 `
 
-const Header = ({ viewName }) => {
+const Header = () => {
+    let clickedView = useLocation().pathname;
+    if (clickedView === '/') {
+        clickedView = 'Week View'
+    } else if (clickedView === '/dayview') {
+        clickedView = 'Day View'
+    } else {
+        clickedView = 'Notes'
+    }
+
   return (
     <HeaderContainer>
       <Intodoitive>
@@ -36,7 +48,7 @@ const Header = ({ viewName }) => {
         itive
       </Intodoitive>
       <ViewName>
-        viewName
+        {clickedView}
       </ViewName>
     </HeaderContainer>
   );
