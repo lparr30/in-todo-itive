@@ -1,11 +1,10 @@
-import "./WeekView.css";
-import ChangeView from "../../components/ChangeView";
+// import "./WeekView.css";
+import WeekCard from "../../components/WeekCard";
 
 const WeekView = () => {
   return (
     <div>
-      <h1 id="week">week view</h1>
-      {/* <ChangeView path='/dayview' view='DayView' /> */}
+      <WeekCard />
     </div>
   );
 };
