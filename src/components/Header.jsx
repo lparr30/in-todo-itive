@@ -14,6 +14,7 @@ const HeaderContainer = styled.div`
 const Intodoitive = styled.h1`
   color: rgb(236, 132, 100);
   margin-left: 5vw;
+  font-size: 2.75em;
 `;
 
 const Dot = styled.span`
@@ -24,8 +25,8 @@ const Dot = styled.span`
 const ViewName = styled.h2`
     color: rgb(180, 220, 132);
     font-style: italic;
-    margin-left: 20vw;
-
+    margin-left: 15vw;
+  font-size: 2em;
 `
 
 const Header = () => {
