@@ -1,15 +1,15 @@
 import "./App.css";
-// import { styled } from "styled-components";
+import { styled } from "styled-components";
 import Header from "./components/Header";
 import ChangeView from "./components/ChangeView";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 
-// const Test = styled.div`
-//   width: 100vw;
-//   height: 100vh;
-//   background-color: red;
-// `
+const Test = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+`
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
       <Header />
       <ChangeView />
       <Outlet />
-      {/* <Test /> */}
+      <Test />
       <Footer />
     </div>
     </>
