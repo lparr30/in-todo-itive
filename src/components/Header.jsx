@@ -3,14 +3,14 @@ import { useLocation } from "react-router-dom";
 
 const HeaderContainer = styled.div`
   background-color: none;
-  height: 6vh;
+  height: 7vh;
   // margin-bottom: 0.5vh;
   position: sticky;
   top: 0;
   display: flex;
   align-items: flex-end;
   z-index: 1;
-  padding-bottom: 1vh;
+  padding-bottom: 2vh;
 `;
 
 const Intodoitive = styled.h1`

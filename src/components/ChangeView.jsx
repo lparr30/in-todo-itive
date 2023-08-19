@@ -7,7 +7,7 @@ const ShowMenuContainer = styled.div`
   position: fixed;
   bottom: 12%;
   right: 0;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.65);
   border: 1px solid rgb(236, 132, 100);
   font-size: 1.55em;
   width: 14vw;
@@ -19,7 +19,7 @@ const MenuContainer = styled.div`
   position: fixed;
   bottom: 12%;
   right: 18%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.65);
   border: 1px solid rgb(236, 132, 100);
   font-size: 1.4em;
   font-style: italic;
