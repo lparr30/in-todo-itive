@@ -9,13 +9,20 @@ const Layout = styled.div`
 `
 
 const WeekView = () => {
+
   return (
     <Layout>
-      {colors.map(item => {
+      {Array.from({ length: 10 }).map(index => {
+        return(
+          <WeekCard color='red'/>
+        )
+      })}
+
+      {/* {colors.map(item => {
         return(
           <WeekCard key={item.id} color={item.rgb}/>
         )
-      })}
+      })} */}
     </Layout>
   );
 };
