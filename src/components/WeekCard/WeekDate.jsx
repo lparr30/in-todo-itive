@@ -25,11 +25,11 @@ const DateDay = styled.p`
   font-style: italic;
 `;
 
-const WeekDate = () => {
+const WeekDate = ({ date, weekday }) => {
   return (
     <DateContainer>
-      <DateNum>7</DateNum>
-      <DateDay>Monday</DateDay>
+      <DateNum>{date}</DateNum>
+      <DateDay>{weekday}</DateDay>
     </DateContainer>
   );
 };

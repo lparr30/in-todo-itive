@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import WeekDate from "./WeekDate";
 import WeekTasks from "./WeekTasks";
-import colors from "../../assets/colors";
+// import colors from "../../assets/colors";
 
 const TaskCard = styled.div`
   width: 88vw;
@@ -14,11 +14,12 @@ const TaskCard = styled.div`
   margin: 0.5em 0;
 `;
 
-const WeekCard = ({ color }) => {
+
+const WeekCard = ({ color, date, weekday }) => {
 
   return (
     <TaskCard $containerColor={color} >
-      <WeekDate />
+      <WeekDate date={date} weekday={weekday}/>
       <WeekTasks />
     </TaskCard>
   );
