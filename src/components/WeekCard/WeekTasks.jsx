@@ -7,6 +7,7 @@ const TaskContainer = styled.ul`
   width: 55%;
   margin-left: 8%;
   padding: 0;
+  color: rgb(0,0,0);
 `;
 
 const Tasks = styled.li`

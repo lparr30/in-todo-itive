@@ -3,19 +3,13 @@ import { styled } from "styled-components";
 const DateContainer = styled.div`
   background: none;
   position: relative;
-  top: 10px;
+  top: 50%;
+  transform: translate(0, -50%);
   width: 32%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-
-const DateNum = styled.p`
-  background: none;
-  margin: 0;
-  font-size: 2em;
-  font-weight: bold;
 `;
 
 const DateDay = styled.p`
@@ -25,11 +19,26 @@ const DateDay = styled.p`
   font-style: italic;
 `;
 
-const WeekDate = () => {
+const DateNum = styled.p`
+  background: none;
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+`;
+
+const DateMonth = styled.p`
+  background: none;
+  margin: 0;
+  font-size: 1em;
+  font-style: italic;
+`;
+
+const WeekDate = ({ weekday, date, month }) => {
   return (
     <DateContainer>
-      <DateNum>7</DateNum>
-      <DateDay>Monday</DateDay>
+      <DateDay>{weekday}</DateDay>
+      <DateNum>{date}</DateNum>
+      <DateMonth>{month}</DateMonth>
     </DateContainer>
   );
 };
