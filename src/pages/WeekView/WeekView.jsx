@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 import WeekCard from "../../components/WeekCard/WeekCard";
 import colors from "../../assets/colors";
+import months from "../../assets/months";
+import weekdays from "../../assets/weekdays";
 
 const Layout = styled.div`
   display: flex;
@@ -12,29 +14,7 @@ const today = new Date();
 let currentDate = today.getDate();
 let currentWeekday = today.getDay();
 let currentMonth = today.getMonth();
-const weekdays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+
 let date, weekday, month;
 
 const WeekView = () => {
@@ -60,10 +40,6 @@ const WeekView = () => {
         } else {
           date > 31 && (date = date % 31);
         }
-
-        // if (date >= 1) {
-        //   month = months[currentMonth + 1];
-        // }
 
         return (
           <WeekCard
