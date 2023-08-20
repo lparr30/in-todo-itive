@@ -10,11 +10,9 @@ const Layout = styled.div`
 
 const today = new Date();
 let currentDate = today.getDate();
-let date;
-
-// for (let i = 0; i < 14; i++) {
-//   date = currentDate + i;
-// }
+let currentWeekday = today.getDay();
+const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+let date, weekday;
 
 
 const WeekView = () => {
@@ -23,13 +21,14 @@ const WeekView = () => {
       {Array.from({ length: 14 }).map((_, index) => {
         const colorIndex = index % colors.length; //colorIndex = the remainder of index (0,1,2,3...13) / 4 (colors.length)
         date = currentDate + index;
+        weekday = weekdays[currentWeekday + index%7]
 
         return (
           <WeekCard
             key={index}
             color={colors[colorIndex]}
             date={date}
-            weekday={"pie day"}
+            weekday={weekday}
           />
         );
       })}
