@@ -8,26 +8,27 @@ const Layout = styled.div`
   align-items: center;
 `;
 
-// const today = new Date();
-// let todayCopy = new Date(today);
-// let todayDate = today.getDate() - 1;
-// todayCopy.setDate(today.getDate() - 1);
-// let date;
-// console.log(todayDate)
+const today = new Date();
+let currentDate = today.getDate();
+let date;
+
+// for (let i = 0; i < 14; i++) {
+//   date = currentDate + i;
+// }
+
 
 const WeekView = () => {
   return (
     <Layout>
       {Array.from({ length: 14 }).map((_, index) => {
         const colorIndex = index % colors.length; //colorIndex = the remainder of index (0,1,2,3...13) / 4 (colors.length)
-        // todayCopy.setDate(today.getDate()+ 1);
-        // console.log(date)
+        date = currentDate + index;
 
         return (
           <WeekCard
             key={index}
             color={colors[colorIndex]}
-            date={3.14}
+            date={date}
             weekday={"pie day"}
           />
         );
