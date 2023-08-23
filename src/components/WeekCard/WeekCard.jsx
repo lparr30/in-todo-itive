@@ -1,10 +1,12 @@
 import { styled } from "styled-components";
 import WeekDate from "./WeekDate";
 import WeekTasks from "./WeekTasks";
+import { useState } from "react";
 
 const TaskCard = styled.div`
   width: 88vw;
-  height: 100px;
+  // height: 100px;
+  height: ${(props) => props.$containerHeight};
   display: flex;
   align-items: flex-start;
   background-color: ${(props) => props.$containerColor};
@@ -12,12 +14,24 @@ const TaskCard = styled.div`
   margin: 0.5em 0;
 `;
 
-
 const WeekCard = ({ color, weekday, date, month }) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const expandedCard = {
+    height: isClicked ? "150px" : "100px",
+  };
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
 
   return (
-    <TaskCard $containerColor={color} >
-      <WeekDate date={date} weekday={weekday} month={month}/>
+    <TaskCard
+      $containerColor={color}
+      $containerHeight={expandedCard.height}
+      onClick={handleClick}
+    >
+      <WeekDate date={date} weekday={weekday} month={month} />
       <WeekTasks />
     </TaskCard>
   );
