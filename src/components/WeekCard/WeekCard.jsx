@@ -14,21 +14,24 @@ const TaskCard = styled.div`
   margin: 0.5em 0;
 `;
 
-
 const WeekCard = ({ color, weekday, date, month }) => {
-  const [isClicked, setIsClicked] = useState(false)
+  const [isClicked, setIsClicked] = useState(false);
 
   const expandedCard = {
-    height: isClicked ? '150px' : '100px'
-  }
+    height: isClicked ? "150px" : "100px",
+  };
 
   const handleClick = () => {
-    // I want the div's height to increase by 50%
-  }
+    setIsClicked(!isClicked);
+  };
 
   return (
-    <TaskCard $containerColor={color} $containerHeight={expandedCard.height} onClick={handleClick}>
-      <WeekDate date={date} weekday={weekday} month={month}/>
+    <TaskCard
+      $containerColor={color}
+      $containerHeight={expandedCard.height}
+      onClick={handleClick}
+    >
+      <WeekDate date={date} weekday={weekday} month={month} />
       <WeekTasks />
     </TaskCard>
   );
