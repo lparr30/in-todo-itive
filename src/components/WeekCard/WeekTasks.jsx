@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { useState } from "react";
 
 const TaskContainer = styled.div`
   background: lightBlue;
@@ -16,11 +17,25 @@ const Tasks = styled.p`
 `;
 
 const WeekTasks = () => {
+  // const [task, setTask] = useState('')
+
+  // const handleNewTask = (event) => {
+  //   setTask(event.target.value)
+  //   console.log(event)
+  // }
+
+  // const handleKeyDown = (event) => {
+  //   if (event.key)
+  // }
+
   return (
     <TaskContainer>
-      <input
+      {/* <input
         type="text"
         placeholder="Enter a task..."
+        value={task}
+        onChange={handleNewTask}
+        onKeyDown={handleKeyDown}
         style={{
           background: "purple",
           border: "none",
@@ -28,7 +43,7 @@ const WeekTasks = () => {
           height: "20%",
           fontSize: "1em",
         }}
-      ></input>
+      ></input> */}
       {/* <Tasks>test</Tasks> */}
     </TaskContainer>
   );
