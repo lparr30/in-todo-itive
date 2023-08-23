@@ -30,7 +30,7 @@ const DateMonth = styled.p`
   background: none;
   margin: 0;
   font-size: 1em;
-  font-style: italic;
+  // font-style: italic;
 `;
 
 const WeekDate = ({ weekday, date, month }) => {
