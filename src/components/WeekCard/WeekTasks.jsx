@@ -1,24 +1,50 @@
 import { styled } from "styled-components";
+import { useState } from "react";
 
-const TaskContainer = styled.ul`
-  background: none;
+const TaskContainer = styled.div`
+  background: lightBlue;
   position: relative;
-  top: -5px;
-  width: 55%;
-  margin-left: 8%;
-  padding: 0;
-  color: rgb(0,0,0);
+  width: 65%;
+  height: 93%;
+  // margin-top: 1%;
+  margin: auto 0;
+  padding: 0 0 0 0;
 `;
 
-const Tasks = styled.li`
+const Tasks = styled.p`
   background: none;
   font-size: 1.25em;
 `;
 
 const WeekTasks = () => {
+  // const [task, setTask] = useState('')
+
+  // const handleNewTask = (event) => {
+  //   setTask(event.target.value)
+  //   console.log(event)
+  // }
+
+  // const handleKeyDown = (event) => {
+  //   if (event.key)
+  // }
+
   return (
     <TaskContainer>
-      <Tasks>test</Tasks>
+      {/* <input
+        type="text"
+        placeholder="Enter a task..."
+        value={task}
+        onChange={handleNewTask}
+        onKeyDown={handleKeyDown}
+        style={{
+          background: "purple",
+          border: "none",
+          width: "98%",
+          height: "20%",
+          fontSize: "1em",
+        }}
+      ></input> */}
+      {/* <Tasks>test</Tasks> */}
     </TaskContainer>
   );
 };

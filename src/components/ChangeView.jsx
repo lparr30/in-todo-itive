@@ -13,6 +13,7 @@ const ShowMenuContainer = styled.div`
   width: 14vw;
   height: 14vw;
   border-radius: 7px;
+  z-index: 1;
 `;
 
 const MenuContainer = styled.div`
@@ -30,6 +31,7 @@ const MenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  z-index: 1;
 `;
 
 const navLinkStyle = {
