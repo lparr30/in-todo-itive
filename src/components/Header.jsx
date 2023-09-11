@@ -2,15 +2,15 @@ import { styled } from "styled-components";
 import { useLocation } from "react-router-dom";
 
 const HeaderContainer = styled.div`
-  background-color: none;
+  background-color: rgb(22, 22, 22);
   height: 7vh;
-  // margin-bottom: 0.5vh;
   position: sticky;
   top: 0;
   display: flex;
   align-items: flex-end;
   z-index: 1;
   padding-bottom: 2vh;
+  transform: translate(0px, -1px);
 `;
 
 const Intodoitive = styled.h1`
