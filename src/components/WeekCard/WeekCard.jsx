@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import WeekDate from "./WeekDate";
 import WeekTasks from "./WeekTasks";
+import '../../variables.css';
 import { useState } from "react";
 
 const TaskCard = styled.div`
@@ -14,11 +15,17 @@ const TaskCard = styled.div`
   margin: 0.5em 0;
 `;
 
+// const NewItem = styled.button`
+//   visibility: ${(props) => props.$newItemVisibility};
+//   background-color: red;
+// `
+
 const WeekCard = ({ color, weekday, date, month }) => {
   const [isClicked, setIsClicked] = useState(false);
 
   const expandedCard = {
     height: isClicked ? "150px" : "100px",
+    // visibility: isClicked ? 'visibile' : 'hidden'
   };
 
   const handleClick = () => {
@@ -32,7 +39,8 @@ const WeekCard = ({ color, weekday, date, month }) => {
       onClick={handleClick}
     >
       <WeekDate date={date} weekday={weekday} month={month} />
-      <WeekTasks />
+      <WeekTasks isClicked={isClicked}/>
+      {/* <NewItem $newItemVisibility={expandedCard.visibility}></NewItem> */}
     </TaskCard>
   );
 };
