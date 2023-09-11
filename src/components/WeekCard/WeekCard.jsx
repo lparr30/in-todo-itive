@@ -17,7 +17,7 @@ const TaskCard = styled.div`
 
 const NewItem = styled.button`
   visibility: ${(props) => props.$newItemVisibility};
-  background-color: --blackTranslucent;
+  background-color: red;
 `
 
 const WeekCard = ({ color, weekday, date, month }) => {
