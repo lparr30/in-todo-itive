@@ -1,0 +1,8 @@
+:root {
+    --black: rgb(22, 22, 22);
+    --blackTranslucent: rgba(22,22,22,0.65);
+    --orange: rgb(236, 132, 100);
+    --cream: rgb(252, 236, 204);
+    --green: rgb(180, 220, 132);
+    --yellow: rgb(252,220,84);
+}

@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 import WeekDate from "./WeekDate";
 import WeekTasks from "./WeekTasks";
+import '../../variables.css';
 import { useState } from "react";
 
 const TaskCard = styled.div`
@@ -16,7 +17,7 @@ const TaskCard = styled.div`
 
 const NewItem = styled.button`
   visibility: ${(props) => props.$newItemVisibility};
-  background-color: red;
+  background-color: --blackTranslucent;
 `
 
 const WeekCard = ({ color, weekday, date, month }) => {
