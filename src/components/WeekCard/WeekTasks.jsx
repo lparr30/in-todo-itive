@@ -1,50 +1,53 @@
 import { styled } from "styled-components";
-import { useState } from "react";
 
 const TaskContainer = styled.div`
   background: lightBlue;
+  // background: none;
   position: relative;
   width: 65%;
-  height: 93%;
-  // margin-top: 1%;
+  height: 97%;
   margin: auto 0;
   padding: 0 0 0 0;
 `;
 
-const Tasks = styled.p`
-  background: none;
-  font-size: 1.25em;
+const ButtonsContainer = styled.div`
+  background-color: red;
+  // background: none;
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 0;
+  width: 57.2vw;
+  height: 16%;
 `;
 
-const WeekTasks = () => {
-  // const [task, setTask] = useState('')
+const NewItem = styled.button`
+  visibility: ${(props) => props.$newItemVisibility};
+  background-color: var(--blackTranslucent);
+  width: 40%;
+  color: var(--cream);
+  border: none;
+  border-radius: 7px;
+`;
 
-  // const handleNewTask = (event) => {
-  //   setTask(event.target.value)
-  //   console.log(event)
-  // }
+const Done = styled.button`
+  visibility: ${(props) => props.$newItemVisibility};
+  background-color: var(--blackTranslucent);
+  width: 25%;
+  color: var(--cream);
+  border: none;
+  border-radius: 7px;
+`;
 
-  // const handleKeyDown = (event) => {
-  //   if (event.key)
-  // }
-
+const WeekTasks = ({ isClicked }) => {
   return (
     <TaskContainer>
-      {/* <input
-        type="text"
-        placeholder="Enter a task..."
-        value={task}
-        onChange={handleNewTask}
-        onKeyDown={handleKeyDown}
-        style={{
-          background: "purple",
-          border: "none",
-          width: "98%",
-          height: "20%",
-          fontSize: "1em",
-        }}
-      ></input> */}
-      {/* <Tasks>test</Tasks> */}
+      {isClicked && (
+        <ButtonsContainer>
+          <NewItem>New Item</NewItem>
+          <Done>Done</Done>
+        </ButtonsContainer>
+      )}
     </TaskContainer>
   );
 };
