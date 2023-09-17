@@ -1,12 +1,15 @@
 import { styled } from "styled-components";
+import { useState } from "react";
 
 const TaskContainer = styled.div`
   background: lightBlue;
   // background: none;
   position: relative;
   width: 64%;
-  height: 97%;
-  margin: auto 0;
+  height: 90px;
+  height: ${(props) => props.$containerHeight};
+  // margin: auto 0;
+  margin-top: 5px;
   padding: 0 0 0 0;
 `;
 
@@ -39,16 +42,38 @@ const Done = styled.button`
   border-radius: 7px;
 `;
 
-const WeekTasks = ({ isClicked }) => {
+const WeekTasks = ({ onHeightChange }) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = (event) => {
+    if (!isClicked) {
+      setIsClicked(true);
+      onHeightChange();
+    } else if (isClicked && event.target.classList.contains('done')) {
+      setIsClicked(false)
+    }
+  };
+  
+  const closeTask = () => {
+    console.log('done')
+    setIsClicked(false);
+    onHeightChange();
+  }
+  
+  const expandedCard = {
+    height: isClicked ? "140px" : "90px",
+  };
+
   return (
-    <TaskContainer>
+    <TaskContainer onClick={handleClick} $containerHeight={expandedCard.height}>
       {isClicked && (
         <ButtonsContainer>
-          <NewItem>New Item</NewItem>
-          <Done>Done</Done>
+          <NewItem onClick={() => console.log("new item")}>New Item</NewItem>
+          <Done className="done" onClick={closeTask}>Done</Done>
         </ButtonsContainer>
       )}
     </TaskContainer>
+
   );
 };
 

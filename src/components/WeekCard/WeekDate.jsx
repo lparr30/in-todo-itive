@@ -5,7 +5,7 @@ const DateContainer = styled.div`
   position: relative;
   top: 50%;
   transform: translate(0, -50%);
-  width: 32%;
+  width: 108.8px;
   display: flex;
   flex-direction: column;
   align-items: center;
