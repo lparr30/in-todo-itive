@@ -5,42 +5,31 @@ import '../../variables.css';
 import { useState } from "react";
 
 const TaskCard = styled.div`
-  width: 88vw;
+  width: 340px;
   // height: 100px;
   height: ${(props) => props.$containerHeight};
   display: flex;
   align-items: flex-start;
   background-color: ${(props) => props.$containerColor};
   border-radius: 20px;
-  margin: 0.5em 0;
+  margin: 8px 0;
 `;
 
-// const NewItem = styled.button`
-//   visibility: ${(props) => props.$newItemVisibility};
-//   background-color: red;
-// `
-
 const WeekCard = ({ color, weekday, date, month }) => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [expandedCardHeight, setExpandedCardHeight] = useState('100px');
 
-  const expandedCard = {
-    height: isClicked ? "150px" : "100px",
-    // visibility: isClicked ? 'visibile' : 'hidden'
-  };
-
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
+  const handleCardHeightChange = () => {
+    setExpandedCardHeight(expandedCardHeight === '100px' ? '150px' : '100px')
+    // setExpandedCardHeight(expandedCardHeight === '100px' && '150px')
+  }
 
   return (
     <TaskCard
       $containerColor={color}
-      $containerHeight={expandedCard.height}
-      onClick={handleClick}
+      $containerHeight={expandedCardHeight}
     >
       <WeekDate date={date} weekday={weekday} month={month} />
-      <WeekTasks isClicked={isClicked}/>
-      {/* <NewItem $newItemVisibility={expandedCard.visibility}></NewItem> */}
+      <WeekTasks onHeightChange={handleCardHeightChange} />
     </TaskCard>
   );
 };
