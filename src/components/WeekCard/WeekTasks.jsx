@@ -4,7 +4,7 @@ const TaskContainer = styled.div`
   background: lightBlue;
   // background: none;
   position: relative;
-  width: 65%;
+  width: 64%;
   height: 97%;
   margin: auto 0;
   padding: 0 0 0 0;
@@ -17,7 +17,7 @@ const ButtonsContainer = styled.div`
   justify-content: space-evenly;
   position: absolute;
   bottom: 0;
-  width: 57.2vw;
+  width: 217.6px; //64% of WeekCard width
   height: 16%;
 `;
 

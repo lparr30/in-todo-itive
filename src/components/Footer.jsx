@@ -2,8 +2,9 @@ import { styled } from "styled-components";
 
 const FooterContainer = styled.footer`
     // background-color: purple;
-    height: 3vh;
-    padding-top: 1vh;
+    height: 20px;
+    // padding-top: 8px;
+    padding: 8px 0;
     text-align: center;
     color: rgb(236, 132, 100);
 `;

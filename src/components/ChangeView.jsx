@@ -5,27 +5,36 @@ import { useState } from "react";
 
 const ShowMenuContainer = styled.div`
   position: fixed;
-  bottom: 12%;
+  // bottom: 12%;
+  bottom: 100px;
   right: 0;
   background-color: rgba(0,0,0,0.65);
   border: 1px solid rgb(236, 132, 100);
-  font-size: 1.55em;
-  width: 14vw;
-  height: 14vw;
+  // font-size: 1.55em;
+  font-size: 24px;
+  // width: 14vw;
+  width: 56px;
+  // height: 14vw;
+  height: 56px;
   border-radius: 7px;
   z-index: 1;
 `;
 
 const MenuContainer = styled.div`
   position: fixed;
-  bottom: 12%;
-  right: 18%;
+  // bottom: 12%;
+  bottom: 100px;
+  // right: 18%;
+  right: 75px;
   background-color: rgba(0,0,0,0.65);
   border: 1px solid rgb(236, 132, 100);
-  font-size: 1.4em;
+  // font-size: 1.4em;
+  font-size: 22px;
   font-style: italic;
-  width: 28vw;
-  height: 28vw;
+  // width: 28vw;
+  width: 120px;
+  // height: 28vw;
+  height: 120px;
   border-radius: 15px;
   text-align: center;
   display: flex;

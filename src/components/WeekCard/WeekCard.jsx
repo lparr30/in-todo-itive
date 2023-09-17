@@ -5,14 +5,14 @@ import '../../variables.css';
 import { useState } from "react";
 
 const TaskCard = styled.div`
-  width: 88vw;
+  width: 340px;
   // height: 100px;
   height: ${(props) => props.$containerHeight};
   display: flex;
   align-items: flex-start;
   background-color: ${(props) => props.$containerColor};
   border-radius: 20px;
-  margin: 0.5em 0;
+  margin: 8px 0;
 `;
 
 // const NewItem = styled.button`

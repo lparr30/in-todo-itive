@@ -15,7 +15,8 @@ const DateContainer = styled.div`
 const DateDay = styled.p`
   background: none;
   margin: 0;
-  font-size: 1.25em;
+  // font-size: 1.25em;
+  font-size: 21px;
   font-style: italic;
 `;
 
@@ -23,13 +24,15 @@ const DateNum = styled.p`
   background: none;
   margin: 0;
   font-size: 2em;
+  font-size: 36px;
   font-weight: bold;
 `;
 
 const DateMonth = styled.p`
   background: none;
   margin: 0;
-  font-size: 1em;
+  // font-size: 1em;
+  font-size: 14px;
   // font-style: italic;
 `;
 
