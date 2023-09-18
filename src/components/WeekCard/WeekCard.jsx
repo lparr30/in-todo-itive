@@ -7,7 +7,7 @@ import { useState } from "react";
 const TaskCard = styled.div`
   width: 340px;
   // height: 100px;
-  height: ${(props) => props.$containerHeight};
+  height: ${(props) => props.$taskCardHeight};
   display: flex;
   align-items: flex-start;
   background-color: ${(props) => props.$containerColor};
@@ -16,17 +16,17 @@ const TaskCard = styled.div`
 `;
 
 const WeekCard = ({ color, weekday, date, month }) => {
-  const [expandedCardHeight, setExpandedCardHeight] = useState('100px');
+  const [expandedCardHeight, setExpandedCardHeight] = useState('150px');
 
   const handleCardHeightChange = () => {
-    setExpandedCardHeight(expandedCardHeight === '100px' ? '150px' : '100px')
+    setExpandedCardHeight(expandedCardHeight === '150px' ? '200px' : '150px')
     // setExpandedCardHeight(expandedCardHeight === '100px' && '150px')
   }
 
   return (
     <TaskCard
       $containerColor={color}
-      $containerHeight={expandedCardHeight}
+      $taskCardHeight={expandedCardHeight}
     >
       <WeekDate date={date} weekday={weekday} month={month} />
       <WeekTasks onHeightChange={handleCardHeightChange} />
