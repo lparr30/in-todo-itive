@@ -5,6 +5,8 @@ import "../../variables.css";
 const TaskContainer = styled.div`
   background: lightBlue;
   // background: none;
+  // border: 1px solid var(--black) !important;
+  // border-radius: 10px;
   position: relative;
   // width: 64%;
   width: 217.6px;
@@ -13,10 +15,20 @@ const TaskContainer = styled.div`
   // margin: auto 0;
   margin-top: 5px;
   padding: 0 0 0 0;
+  padding: 2px;
 `;
 
-const TodoItem = styled.div`
-  background-color: var(--yellow);
+const TodoList = styled.div`
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  // align-items: flex-start;
+  // justify-content: flex-start;
+`;
+
+const NewTodo = styled.div`
+  // background-color: var(--yellow);
+  background-color: rgba(0, 0, 0, 0);
   // height: 22px;
   display: flex;
   align-items: center;
@@ -25,10 +37,12 @@ const TodoItem = styled.div`
 
 const TextField = styled.input`
   width: 174px;
-  height: 24px;
+  height: 23px;
   font-size: 20px;
   background-color: green;
+  // background-color: rgba(0,0,0,0);
   color: rgb(22, 22, 22);
+  border: 1px solid var(--black) !important;
   border: none;
   border-radius: 7px;
 `;
@@ -38,7 +52,7 @@ const Add = styled.button`
   background-color: var(--blackTranslucent);
   // background-color: none;
   width: 34px;
-  height: 24px;
+  height: 25px;
   text-align: center;
   padding: 0;
   color: var(--cream);
@@ -46,28 +60,30 @@ const Add = styled.button`
   border-radius: 7px;
 `;
 
+const ButtonsContainer = styled.div`
+  background-color: red;
+  // background: var(--yellow);
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  width: 217.6px; //64% of WeekCard width
+  height: 24px;
+`;
+
 const Done = styled.button`
   visibility: ${(props) => props.$newItemVisibility};
   background-color: var(--blackTranslucent);
-  width: 25%;
+  width: 40px;
+  padding: 0;
   color: var(--cream);
   border: none;
   border-radius: 7px;
 `;
 
-const ButtonsContainer = styled.div`
-  background-color: red;
-  // background: none;
-  display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  bottom: 0;
-  width: 217.6px; //64% of WeekCard width
-  height: 16%;
-`;
-
 const WeekTasks = ({ onHeightChange }) => {
   const [isClicked, setIsClicked] = useState(false);
+  const [addIsClicked, setAddIsClicked] = useState(false);
   // const [newItemButton, setNewItemButton] = useState(false)
 
   const handleClick = (event) => {
@@ -86,6 +102,10 @@ const WeekTasks = ({ onHeightChange }) => {
     onHeightChange();
   };
 
+  const renderTodo = (event) => {
+    setAddIsClicked(true);
+  };
+
   const expandedCard = {
     height: isClicked ? "190px" : "140px",
   };
@@ -95,21 +115,25 @@ const WeekTasks = ({ onHeightChange }) => {
       onClick={handleClick}
       $taskContainerHeight={expandedCard.height}
     >
-      {/* {newItemButton && (
-        <TodoItem>
-          <TextField type="text" id="new-todo" name="text" autoComplete="off"></TextField>
-          <NewItem type="submit">Add</NewItem>
-        </TodoItem>
-      )} */}
-      <TodoItem>
-        <TextField
-          type="text"
-          id="new-todo"
-          name="text"
-          autoComplete="off"
-        ></TextField>
-        <Add type="submit">Add</Add>
-      </TodoItem>
+      <TodoList>
+        <NewTodo>
+          <TextField
+            type="text"
+            placeholder="New Task"
+            id="new-todo"
+            name="text"
+            autoComplete="off"
+          ></TextField>
+          <Add type="submit" onClick={renderTodo}>
+            Add
+          </Add>
+        </NewTodo>
+        {addIsClicked && (
+          <ul type='checklist' style={{backgroundColor: 'rgba(0,0,0,0)', listStyle: 'circle'}}>
+            <li style={{backgroundColor: 'rgba(0,0,0,0)'}}>hello</li>
+          </ul>
+        )}
+      </TodoList>
       {isClicked && (
         <ButtonsContainer>
           <Done className="done" onClick={closeTask}>
