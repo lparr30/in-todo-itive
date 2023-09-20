@@ -60,8 +60,40 @@ const Add = styled.button`
   border-radius: 7px;
 `;
 
+const CheckboxContainerBig = styled.div`
+  width: 100%;
+  height: 160px;
+  background-color: pink;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`
+
+const CheckboxContainerSmall = styled.div`
+  display: inline-block;
+  vertical-align: top;
+  background: $color--white;
+  text-align: left;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  // padding: 30px;
+  // width: 200px;
+  // height: 210px;
+  // margin: 10px;
+`
+
+const Checkboxes = styled.label`
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  font-size: 18px;
+`
+
 const ButtonsContainer = styled.div`
-  background-color: red;
+  // background-color: red;
+  background-color: rgba(0,0,0,0);
   // background: var(--yellow);
   display: flex;
   justify-content: flex-end;
@@ -79,6 +111,7 @@ const Done = styled.button`
   color: var(--cream);
   border: none;
   border-radius: 7px;
+  // z-index: 4;
 `;
 
 const WeekTasks = ({ onHeightChange }) => {
@@ -129,9 +162,17 @@ const WeekTasks = ({ onHeightChange }) => {
           </Add>
         </NewTodo>
         {addIsClicked && (
-          <ul type='checklist' style={{backgroundColor: 'rgba(0,0,0,0)', listStyle: 'circle'}}>
-            <li style={{backgroundColor: 'rgba(0,0,0,0)'}}>hello</li>
-          </ul>
+          <CheckboxContainerBig>
+            <CheckboxContainerSmall>
+              <Checkboxes>this is a todo item
+                <input type="checkbox"/>
+              </Checkboxes>
+            </CheckboxContainerSmall>
+          </CheckboxContainerBig>
+
+          // <ul type='checklist' style={{backgroundColor: 'rgba(0,0,0,0)', listStyle: 'circle'}}>
+          //   <li style={{backgroundColor: 'rgba(0,0,0,0)'}}>hello</li>
+          // </ul>
         )}
       </TodoList>
       {isClicked && (
