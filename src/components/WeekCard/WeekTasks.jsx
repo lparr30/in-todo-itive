@@ -1,6 +1,8 @@
 import { styled } from "styled-components";
 import { useState } from "react";
 import "../../variables.css";
+import TodoCheckboxes from "../TodoCheckboxes";
+import userEvent from "@testing-library/user-event";
 
 const TaskContainer = styled.div`
   background: lightBlue;
@@ -60,40 +62,9 @@ const Add = styled.button`
   border-radius: 7px;
 `;
 
-const CheckboxContainerBig = styled.div`
-  width: 100%;
-  height: 160px;
-  background-color: pink;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-`
-
-const CheckboxContainerSmall = styled.div`
-  display: inline-block;
-  vertical-align: top;
-  background: $color--white;
-  text-align: left;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-  // padding: 30px;
-  // width: 200px;
-  // height: 210px;
-  // margin: 10px;
-`
-
-const Checkboxes = styled.label`
-  display: block;
-  position: relative;
-  padding-left: 30px;
-  margin-bottom: 15px;
-  cursor: pointer;
-  font-size: 18px;
-`
-
 const ButtonsContainer = styled.div`
   // background-color: red;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
   // background: var(--yellow);
   display: flex;
   justify-content: flex-end;
@@ -117,7 +88,8 @@ const Done = styled.button`
 const WeekTasks = ({ onHeightChange }) => {
   const [isClicked, setIsClicked] = useState(false);
   const [addIsClicked, setAddIsClicked] = useState(false);
-  // const [newItemButton, setNewItemButton] = useState(false)
+  const [inputText, setInputText] = useState('');
+  const [todoList, setTodoList] = useState([]);
 
   const handleClick = (event) => {
     if (!isClicked) {
@@ -126,21 +98,34 @@ const WeekTasks = ({ onHeightChange }) => {
     } else if (isClicked && event.target.classList.contains("done")) {
       setIsClicked(false);
     }
-    // setNewItemButton(true);
   };
 
   const closeTask = () => {
     console.log("done");
     setIsClicked(false);
     onHeightChange();
+    setAddIsClicked(false);
   };
 
-  const renderTodo = (event) => {
+  const renderTodo = () => {
     setAddIsClicked(true);
+    const ListId = todoList.length + 1;
+    setTodoList((prev) => [
+      ...prev,
+      {
+        id: ListId,
+        task: inputText,
+      },
+    ]);
+
   };
+
+  // const handleInputText = (e) => {
+  //   setInputText(e.target.value);
+  // }
 
   const expandedCard = {
-    height: isClicked ? "190px" : "140px",
+    height: isClicked ? "185px" : "135px",
   };
 
   return (
@@ -156,24 +141,15 @@ const WeekTasks = ({ onHeightChange }) => {
             id="new-todo"
             name="text"
             autoComplete="off"
+            // onChange={renderTodo}
+            value={inputText}
+            onInput={(event) => setInputText(event.target.value)}
           ></TextField>
           <Add type="submit" onClick={renderTodo}>
             Add
           </Add>
         </NewTodo>
-        {addIsClicked && (
-          <CheckboxContainerBig>
-            <CheckboxContainerSmall>
-              <Checkboxes>this is a todo item
-                <input type="checkbox"/>
-              </Checkboxes>
-            </CheckboxContainerSmall>
-          </CheckboxContainerBig>
-
-          // <ul type='checklist' style={{backgroundColor: 'rgba(0,0,0,0)', listStyle: 'circle'}}>
-          //   <li style={{backgroundColor: 'rgba(0,0,0,0)'}}>hello</li>
-          // </ul>
-        )}
+        {addIsClicked && <TodoCheckboxes inputText={inputText} todoList={todoList} />}
       </TodoList>
       {isClicked && (
         <ButtonsContainer>
