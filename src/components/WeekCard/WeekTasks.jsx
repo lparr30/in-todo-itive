@@ -60,6 +60,10 @@ const Add = styled.button`
   color: var(--cream);
   border: none;
   border-radius: 7px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const ButtonsContainer = styled.div`
@@ -83,13 +87,17 @@ const Done = styled.button`
   border: none;
   border-radius: 7px;
   // z-index: 4;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const WeekTasks = ({ onHeightChange }) => {
   const [isClicked, setIsClicked] = useState(false);
-  const [addIsClicked, setAddIsClicked] = useState(false);
-  const [inputText, setInputText] = useState('');
-  const [todoList, setTodoList] = useState([]);
+  // const [addIsClicked, setAddIsClicked] = useState(false);
+  const [val, setVal] = useState('');
+  const [tasks, setTasks] = useState([]);
 
   const handleClick = (event) => {
     if (!isClicked) {
@@ -104,25 +112,28 @@ const WeekTasks = ({ onHeightChange }) => {
     console.log("done");
     setIsClicked(false);
     onHeightChange();
-    setAddIsClicked(false);
+    // setAddIsClicked(false);
   };
 
-  const renderTodo = () => {
-    setAddIsClicked(true);
-    const ListId = todoList.length + 1;
-    setTodoList((prev) => [
-      ...prev,
-      {
-        id: ListId,
-        task: inputText,
-      },
-    ]);
+  const changeVal = (event) => {
+    setVal(event.target.value);
+  }
 
+  const addTask = () => {
+    // setAddIsClicked(true);
+    // // (addIsClicked && (inputText !== "")) ? (<TodoCheckboxes inputText={inputText} todoList={todoList} />) : alert('Please enter a task.')
+    // (inputText === "") ? alert('Please enter a task.') : <TodoCheckboxes inputText={inputText} todoList={todoList} />
+    if (val.trim() !== '') {
+      setTasks([...tasks, val]);
+    }
+    setVal('');
   };
 
-  // const handleInputText = (e) => {
-  //   setInputText(e.target.value);
-  // }
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      addTask();
+    }
+  }
 
   const expandedCard = {
     height: isClicked ? "185px" : "135px",
@@ -138,18 +149,27 @@ const WeekTasks = ({ onHeightChange }) => {
           <TextField
             type="text"
             placeholder="New Task"
-            id="new-todo"
-            name="text"
-            autoComplete="off"
-            // onChange={renderTodo}
-            value={inputText}
-            onInput={(event) => setInputText(event.target.value)}
+            name="input"
+            value={val}
+            onChange={changeVal}
+            onKeyDown={handleKeyDown}
           ></TextField>
-          <Add type="submit" onClick={renderTodo}>
+          <Add type="submit" onClick={addTask}>
             Add
           </Add>
         </NewTodo>
-        {addIsClicked && <TodoCheckboxes inputText={inputText} todoList={todoList} />}
+        <ul>
+          {tasks.map((task, index) => {
+            return(
+              <li key={index}>
+                {task}
+              </li>
+            )
+          })}
+        </ul>
+
+
+        {/* <TodoCheckboxes inputText={inputText} todoList={todoList} /> */}
       </TodoList>
       {isClicked && (
         <ButtonsContainer>
