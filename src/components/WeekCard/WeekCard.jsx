@@ -12,7 +12,7 @@ const TaskCard = styled.div`
   align-items: flex-start;
   background-color: ${(props) => props.$containerColor};
   border-radius: 20px;
-  margin: 8px 0;
+  margin: 16px 0;
 `;
 
 const WeekCard = ({ color, weekday, date, month }) => {
@@ -20,7 +20,6 @@ const WeekCard = ({ color, weekday, date, month }) => {
 
   const handleCardHeightChange = () => {
     setExpandedCardHeight(expandedCardHeight === '150px' ? '200px' : '150px')
-    // setExpandedCardHeight(expandedCardHeight === '100px' && '150px')
   }
 
   return (

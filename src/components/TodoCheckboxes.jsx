@@ -9,17 +9,18 @@ const TaskContainer = styled.div`
   list-style-type: none;
 `;
 
-// const CheckboxItem = styled.label`
-//   background-color: pink;
-//   //   display: inline;
-//   cursor: pointer;
-//   font-size: 18px;
-// `;
+const Checkbox = styled.input`
+  cursor: pointer;
+
+  &:checked {
+    background-color: red;
+  }
+`;
 
 const TodoCheckboxes = ({ task, index }) => {
   return (
     <TaskContainer key={index}>
-      <input value={task} type="checkbox" />
+      <Checkbox value={task} type="checkbox" />
       <span style={{backgroundColor: 'rgba(0,0,0,0)', paddingLeft: '3px'}}>{task}</span>
     </TaskContainer>
   );

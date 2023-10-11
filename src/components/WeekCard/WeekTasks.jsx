@@ -78,11 +78,11 @@ const ButtonsContainer = styled.div`
   height: 24px;
 `;
 
-const Done = styled.button`
+const Btn = styled.button`
   visibility: ${(props) => props.$newItemVisibility};
   background-color: var(--blackTranslucent);
-  width: 40px;
-  padding: 0;
+  width: fit-content;
+  padding: 0 4px;
   color: var(--cream);
   border: none;
   border-radius: 7px;
@@ -94,25 +94,23 @@ const Done = styled.button`
 `;
 
 const WeekTasks = ({ onHeightChange }) => {
-  const [isClicked, setIsClicked] = useState(false);
-  // const [addIsClicked, setAddIsClicked] = useState(false);
+  const [editClick, setEditClick] = useState(false);
   const [val, setVal] = useState('');
   const [tasks, setTasks] = useState([]);
 
   const handleClick = (event) => {
-    if (!isClicked) {
-      setIsClicked(true);
+    if (!editClick) {
+      setEditClick(true);
       onHeightChange();
-    } else if (isClicked && event.target.classList.contains("done")) {
-      setIsClicked(false);
+    } else if (editClick && event.target.classList.contains("done")) {
+      setEditClick(false);
     }
   };
 
   const closeTask = () => {
     console.log("done");
-    setIsClicked(false);
+    setEditClick(false);
     onHeightChange();
-    // setAddIsClicked(false);
   };
 
   const changeVal = (event) => {
@@ -120,9 +118,6 @@ const WeekTasks = ({ onHeightChange }) => {
   }
 
   const addTask = () => {
-    // setAddIsClicked(true);
-    // // (addIsClicked && (inputText !== "")) ? (<TodoCheckboxes inputText={inputText} todoList={todoList} />) : alert('Please enter a task.')
-    // (inputText === "") ? alert('Please enter a task.') : <TodoCheckboxes inputText={inputText} todoList={todoList} />
     if (val.trim() !== '') {
       setTasks([...tasks, val]);
     }
@@ -136,12 +131,12 @@ const WeekTasks = ({ onHeightChange }) => {
   }
 
   const expandedCard = {
-    height: isClicked ? "185px" : "135px",
+    height: editClick ? "185px" : "135px",
   };
 
   return (
     <TaskContainer
-      onClick={handleClick}
+      // onClick={handleClick}
       $taskContainerHeight={expandedCard.height}
     >
       <TodoList>
@@ -164,24 +159,21 @@ const WeekTasks = ({ onHeightChange }) => {
             <TodoCheckboxes task={task} index={index} />
           )
         })}
-          {/* {tasks.map((task, index) => {
-            return(
-              <div key={index}>
-                <input value={task} type="checkbox"/>
-                <span>
-                  {task}
-                </span>
-              </div>
-            )
-          })} */}
 
 
       </TodoList>
-      {isClicked && (
+
+      {!editClick && (<ButtonsContainer>
+          <Btn className="done" onClick={handleClick}>
+            Edit
+          </Btn>
+      </ButtonsContainer>)}
+
+      {editClick && (
         <ButtonsContainer>
-          <Done className="done" onClick={closeTask}>
+          <Btn className="done" onClick={closeTask}>
             Done
-          </Done>
+          </Btn>
         </ButtonsContainer>
       )}
     </TaskContainer>
