@@ -158,18 +158,24 @@ const WeekTasks = ({ onHeightChange }) => {
             Add
           </Add>
         </NewTodo>
-        <ul>
-          {tasks.map((task, index) => {
+
+        {tasks.map((task, index) => {
+          return(
+            <TodoCheckboxes task={task} index={index} />
+          )
+        })}
+          {/* {tasks.map((task, index) => {
             return(
-              <li key={index}>
-                {task}
-              </li>
+              <div key={index}>
+                <input value={task} type="checkbox"/>
+                <span>
+                  {task}
+                </span>
+              </div>
             )
-          })}
-        </ul>
+          })} */}
 
 
-        {/* <TodoCheckboxes inputText={inputText} todoList={todoList} /> */}
       </TodoList>
       {isClicked && (
         <ButtonsContainer>

@@ -1,32 +1,27 @@
 import { styled } from "styled-components";
 import "../variables.css";
 
-const CheckboxContainer = styled.ul`
+const TaskContainer = styled.div`
   margin: 0;
   padding: 0;
-  background-color: purple;
+  // background-color: purple;
+  background-color: rgba(0,0,0,0);
   list-style-type: none;
 `;
 
-const CheckboxItem = styled.label`
-  background-color: pink;
-  //   display: inline;
-  cursor: pointer;
-  font-size: 18px;
-`;
+// const CheckboxItem = styled.label`
+//   background-color: pink;
+//   //   display: inline;
+//   cursor: pointer;
+//   font-size: 18px;
+// `;
 
-const TodoCheckboxes = ({ inputText, todoList, ListId }) => {
+const TodoCheckboxes = ({ task, index }) => {
   return (
-    <CheckboxContainer>
-      {todoList.map((todo) => {
-        return (
-          <li style={{backgroundColor: 'rgba(0,0,0,0)'}}>
-            <input type="checkbox" />
-            <CheckboxItem id={todo.ListId}>{inputText}</CheckboxItem>
-          </li>
-        );
-      })}
-    </CheckboxContainer>
+    <TaskContainer key={index}>
+      <input value={task} type="checkbox" />
+      <span style={{backgroundColor: 'rgba(0,0,0,0)', paddingLeft: '3px'}}>{task}</span>
+    </TaskContainer>
   );
 };
 
