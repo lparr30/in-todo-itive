@@ -87,6 +87,11 @@ const WeekTasks = ({ editClick }) => {
     }
   }
 
+  const deleteTask = (index) => {
+    tasks.splice(index, 1);
+    setTasks([...tasks]);
+  }
+
   // const expandedCard = {
   //   height: editClick ? "185px" : "135px",
   // };
@@ -112,7 +117,7 @@ const WeekTasks = ({ editClick }) => {
 
         {tasks.map((task, index) => {
           return(
-            <TodoCheckboxes editClick={editClick} task={task} index={index} />
+            <TodoCheckboxes deleteTask={deleteTask} key={index} editClick={editClick} task={task} index={index} />
           )
         })}
 
