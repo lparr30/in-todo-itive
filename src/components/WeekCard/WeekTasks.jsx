@@ -1,79 +1,124 @@
 import { styled } from "styled-components";
 import { useState } from "react";
+import "../../variables.css";
+import TodoCheckboxes from "../TodoCheckboxes";
 
 const TaskContainer = styled.div`
   background: lightBlue;
-  // background: none;
   position: relative;
-  width: 64%;
-  height: 90px;
-  height: ${(props) => props.$containerHeight};
-  // margin: auto 0;
+  width: 217.6px;
+  // height: 140px;
+  min-height: 100px;
+  max-height: fit-content;
+  // display: flex;
+  // flex-direction: column;
+  // flex: 1 0 auto;
+  // height: ${(props) => props.$taskContainerHeight};
   margin-top: 5px;
   padding: 0 0 0 0;
+  padding: 2px;
 `;
 
-const ButtonsContainer = styled.div`
-  background-color: red;
-  // background: none;
+const TodoList = styled.div`
+  background-color: rgba(0, 0, 0, 0);
   display: flex;
-  justify-content: space-evenly;
-  position: absolute;
-  bottom: 0;
-  width: 217.6px; //64% of WeekCard width
-  height: 16%;
+  flex-direction: column;
+  // align-items: flex-start;
+  // justify-content: flex-start;
 `;
 
-const NewItem = styled.button`
-  visibility: ${(props) => props.$newItemVisibility};
-  background-color: var(--blackTranslucent);
-  width: 40%;
-  color: var(--cream);
+const NewTodo = styled.div`
+  // background-color: var(--yellow);
+  background-color: rgba(0, 0, 0, 0);
+  // height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const TextField = styled.input`
+  width: 174px;
+  height: 23px;
+  font-size: 20px;
+  background-color: green;
+  // background-color: rgba(0,0,0,0);
+  color: rgb(22, 22, 22);
+  border: 1px solid var(--black) !important;
   border: none;
   border-radius: 7px;
 `;
 
-const Done = styled.button`
+const Add = styled.button`
   visibility: ${(props) => props.$newItemVisibility};
   background-color: var(--blackTranslucent);
-  width: 25%;
+  // background-color: none;
+  width: 34px;
+  height: 25px;
+  text-align: center;
+  padding: 0;
   color: var(--cream);
   border: none;
   border-radius: 7px;
-`;
 
-const WeekTasks = ({ onHeightChange }) => {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleClick = (event) => {
-    if (!isClicked) {
-      setIsClicked(true);
-      onHeightChange();
-    } else if (isClicked && event.target.classList.contains('done')) {
-      setIsClicked(false)
-    }
-  };
-  
-  const closeTask = () => {
-    console.log('done')
-    setIsClicked(false);
-    onHeightChange();
+  &:hover {
+    cursor: pointer;
   }
-  
-  const expandedCard = {
-    height: isClicked ? "140px" : "90px",
+`;
+
+
+const WeekTasks = ({ editClick }) => {
+  const [val, setVal] = useState('');
+  const [tasks, setTasks] = useState([]);
+
+  const changeVal = (event) => {
+    setVal(event.target.value);
+  }
+
+  const addTask = () => {
+    if (val.trim() !== '') {
+      setTasks([...tasks, val]);
+    }
+    setVal('');
   };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      addTask();
+    }
+  }
+
+  // const expandedCard = {
+  //   height: editClick ? "185px" : "135px",
+  // };
 
   return (
-    <TaskContainer onClick={handleClick} $containerHeight={expandedCard.height}>
-      {isClicked && (
-        <ButtonsContainer>
-          <NewItem onClick={() => console.log("new item")}>New Item</NewItem>
-          <Done className="done" onClick={closeTask}>Done</Done>
-        </ButtonsContainer>
-      )}
-    </TaskContainer>
+    <TaskContainer
+      // $taskContainerHeight={expandedCard.height}
+    >
+      <TodoList>
+        <NewTodo>
+          <TextField
+            type="text"
+            placeholder="New Task"
+            name="input"
+            value={val}
+            onChange={changeVal}
+            onKeyDown={handleKeyDown}
+          ></TextField>
+          <Add type="submit" onClick={addTask}>
+            Add
+          </Add>
+        </NewTodo>
 
+        {tasks.map((task, index) => {
+          return(
+            <TodoCheckboxes editClick={editClick} task={task} index={index} />
+          )
+        })}
+
+
+      </TodoList>
+    </TaskContainer>
   );
 };
 
