@@ -17,10 +17,29 @@ const Checkbox = styled.input`
   }
 `;
 
-const TodoCheckboxes = ({ task, index }) => {
+const Btn = styled.button`
+  background-color: var(--blackTranslucent);
+  width: 18px;
+  height: 18px;
+  // padding: 0 4px;
+  padding: 0;
+  font-size: 10px;
+  color: var(--cream);
+  border: none;
+  border-radius: 4px;
+  z-index: 4;
+  margin-right: 2px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const TodoCheckboxes = ({ task, index, editClick }) => {
   return (
     <TaskContainer key={index}>
-      <Checkbox value={task} type="checkbox" />
+      {!editClick && <Checkbox value={task} type="checkbox" />}
+      {editClick && <Btn>X</Btn>}
       <span style={{backgroundColor: 'rgba(0,0,0,0)', paddingLeft: '3px'}}>{task}</span>
     </TaskContainer>
   );

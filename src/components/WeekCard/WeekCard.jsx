@@ -35,7 +35,7 @@ const ButtonsContainer = styled.div`
 `;
 
 const Btn = styled.button`
-  visibility: ${(props) => props.$newItemVisibility};
+  // visibility: ${(props) => props.$newItemVisibility};
   background-color: var(--blackTranslucent);
   width: fit-content;
   height: 22px;
@@ -67,7 +67,7 @@ const WeekCard = ({ color, weekday, date, month }) => {
     }
   };
 
-  const closeTask = () => {
+  const handleDone = () => {
     setEditClick(false);
     // onHeightChange();
   };
@@ -89,7 +89,7 @@ const WeekCard = ({ color, weekday, date, month }) => {
 
         {editClick && (
           <ButtonsContainer>
-            <Btn className="done" onClick={closeTask}>
+            <Btn className="done" onClick={handleDone}>
               Done
             </Btn>
           </ButtonsContainer>

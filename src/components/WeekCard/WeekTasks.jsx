@@ -66,7 +66,7 @@ const Add = styled.button`
 `;
 
 
-const WeekTasks = () => {
+const WeekTasks = ({ editClick }) => {
   const [val, setVal] = useState('');
   const [tasks, setTasks] = useState([]);
 
@@ -112,7 +112,7 @@ const WeekTasks = () => {
 
         {tasks.map((task, index) => {
           return(
-            <TodoCheckboxes task={task} index={index} />
+            <TodoCheckboxes editClick={editClick} task={task} index={index} />
           )
         })}
 
