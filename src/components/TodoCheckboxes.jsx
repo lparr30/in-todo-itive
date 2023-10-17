@@ -19,27 +19,32 @@ const Checkbox = styled.input`
 
 const Btn = styled.button`
   background-color: var(--blackTranslucent);
-  width: 18px;
-  height: 18px;
+  width: 15px;
+  height: 15px;
   // padding: 0 4px;
   padding: 0;
-  font-size: 10px;
+  font-size: 16px;
   color: var(--cream);
   border: none;
   border-radius: 4px;
   z-index: 4;
-  margin-right: 2px;
+  margin: 2.5px;
 
   &:hover {
     cursor: pointer;
   }
 `;
 
-const TodoCheckboxes = ({ task, index, editClick }) => {
+const TodoCheckboxes = ({ task, index, editClick, deleteTask }) => {
+
+  const handleDeleteTask = () => {
+    console.log(`Clicked task at ${index}: ${task}`)
+  }
+
   return (
-    <TaskContainer key={index}>
+    <TaskContainer onClick={handleDeleteTask}>
       {!editClick && <Checkbox value={task} type="checkbox" />}
-      {editClick && <Btn>X</Btn>}
+      {editClick && <Btn onClick={() => deleteTask(index)}>x</Btn>}
       <span style={{backgroundColor: 'rgba(0,0,0,0)', paddingLeft: '3px'}}>{task}</span>
     </TaskContainer>
   );
