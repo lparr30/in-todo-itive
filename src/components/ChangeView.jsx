@@ -18,6 +18,7 @@ const ShowMenuContainer = styled.div`
   height: 56px;
   border-radius: 7px;
   z-index: 1;
+  cursor: pointer;
 `;
 
 const MenuContainer = styled.div`

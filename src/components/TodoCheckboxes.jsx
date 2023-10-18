@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import "../variables.css";
+// import { useState } from "react";
 
 const TaskContainer = styled.div`
   margin: 0;
@@ -36,16 +37,21 @@ const Btn = styled.button`
 `;
 
 const TodoCheckboxes = ({ task, index, editClick, deleteTask }) => {
+  // const [editTask, setEditTask] = useState(false);
 
   const handleDeleteTask = () => {
     console.log(`Clicked task at ${index}: ${task}`)
   }
 
+  // const handleContentEdits = () => {
+  //   setEditTask(!editClick ? true : false);
+  // }
+
   return (
     <TaskContainer onClick={handleDeleteTask}>
       {!editClick && <Checkbox value={task} type="checkbox" />}
       {editClick && <Btn onClick={() => deleteTask(index)}>x</Btn>}
-      <span style={{backgroundColor: 'rgba(0,0,0,0)', paddingLeft: '3px'}}>{task}</span>
+      <span contentEditable={editClick ? true : false} style={{backgroundColor: 'rgba(0,0,0,0)', paddingLeft: '3px'}}>{task}</span>
     </TaskContainer>
   );
 };

@@ -44,7 +44,7 @@ const Btn = styled.button`
   border: none;
   border-radius: 7px;
   margin-bottom: 4px;
-  z-index: 4;
+  // z-index: 4;
 
   &:hover {
     cursor: pointer;
