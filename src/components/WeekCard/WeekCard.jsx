@@ -7,7 +7,7 @@ import { useState } from "react";
 const TaskCard = styled.div`
   width: 340px;
   // height: 150px;
-  height: ${(props) => props.$taskCardHeight};
+  height: ${(props) => props.$colorCardHeight}px;
   display: flex;
   // align-items: flex-start;
   background-color: ${(props) => props.$containerColor};
@@ -52,11 +52,11 @@ const Btn = styled.button`
 `;
 
 const WeekCard = ({ color, weekday, date, month }) => {
-  const [expandedCardHeight, setExpandedCardHeight] = useState("150px");
+  const [expandedCardHeight, setExpandedCardHeight] = useState(170);
   const [editClick, setEditClick] = useState(false);
 
   // const handleCardHeightChange = () => {
-  //   setExpandedCardHeight(expandedCardHeight === "150px" ? "200px" : "150px");
+  //   setExpandedCardHeight();
   // };
 
   const handleEdit = (event) => {
@@ -73,13 +73,15 @@ const WeekCard = ({ color, weekday, date, month }) => {
   };
 
   return (
-    <TaskCard $containerColor={color} $taskCardHeight={expandedCardHeight}>
+    <TaskCard $containerColor={color} $colorCardHeight={expandedCardHeight}>
       <WeekDate date={date} weekday={weekday} month={month} />
       <TasksEditBox>
         <WeekTasks
           // onHeightChange={handleCardHeightChange}
           editClick={editClick}
           setEditClick={setEditClick}
+          expandedCardHeight={expandedCardHeight}
+          setExpandedCardHeight={setExpandedCardHeight}
         />
         {!editClick && (
           <ButtonsContainer>

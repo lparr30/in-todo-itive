@@ -3,8 +3,8 @@ import { styled } from "styled-components";
 const DateContainer = styled.div`
   background: none;
   position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
+  // top: 50%;
+  // transform: translate(0, -50%);
   width: 108.8px;
   display: flex;
   flex-direction: column;
