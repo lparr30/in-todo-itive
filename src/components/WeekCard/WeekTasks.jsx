@@ -7,13 +7,13 @@ const TaskContainer = styled.div`
   background: lightBlue;
   position: relative;
   width: 217.6px;
-  // height: 140px;
-  min-height: 100px;
-  max-height: fit-content;
+  // height: 112px;
+  min-height: 120px;
+  // max-height: fit-content;
+  max-height: ${(props) => props.$maxTaskHeight};
   // display: flex;
   // flex-direction: column;
   // flex: 1 0 auto;
-  // height: ${(props) => props.$taskContainerHeight};
   margin-top: 5px;
   padding: 0 0 0 0;
   padding: 2px;
@@ -49,7 +49,7 @@ const TextField = styled.input`
 `;
 
 const Add = styled.button`
-  visibility: ${(props) => props.$newItemVisibility};
+  // visibility: ${(props) => props.$newItemVisibility};
   background-color: var(--blackTranslucent);
   // background-color: none;
   width: 34px;
@@ -66,9 +66,13 @@ const Add = styled.button`
 `;
 
 
-const WeekTasks = ({ editClick }) => {
+const WeekTasks = ({ editClick, expandedCardHeight, setExpandedCardHeight }) => {
   const [val, setVal] = useState('');
   const [tasks, setTasks] = useState([]);
+
+  const expanded = {
+    height: "fit-content",
+  };
 
   const changeVal = (event) => {
     setVal(event.target.value);
@@ -79,6 +83,11 @@ const WeekTasks = ({ editClick }) => {
       setTasks([...tasks, val]);
     }
     setVal('');
+    console.log(expanded.height)
+    
+    if (tasks.length > 4) {
+      setExpandedCardHeight('fit-content')
+    }
   };
 
   const handleKeyDown = (event) => {
@@ -92,13 +101,9 @@ const WeekTasks = ({ editClick }) => {
     setTasks([...tasks]);
   }
 
-  // const expandedCard = {
-  //   height: editClick ? "185px" : "135px",
-  // };
-
   return (
     <TaskContainer
-      // $taskContainerHeight={expandedCard.height}
+      $maxTaskHeight={expanded.height}
     >
       <TodoList>
         <NewTodo>

@@ -12,9 +12,9 @@ const TaskContainer = styled.div`
 const Checkbox = styled.input`
   cursor: pointer;
 
-  &:checked {
-    background-color: red;
-  }
+  // &:checked {
+  //   background-color: red;
+  // }
 `;
 
 const Btn = styled.button`
@@ -30,7 +30,7 @@ const Btn = styled.button`
   z-index: 4;
   margin: 2.5px;
 
-  &:hover {
+  :focus {
     cursor: pointer;
   }
 `;
