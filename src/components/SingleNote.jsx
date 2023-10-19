@@ -1,39 +1,42 @@
 import { styled } from "styled-components";
 import "../variables.css";
-import { useState } from "react";
 
 const Note = styled.div`
+  background-color: rgba(0, 0, 0, 0);
+  background-color: var(--cream);
   width: 200px;
-  // min-height: 150px;
   height: fit-content;
   padding: 8px;
-  color: var(--cream);
   border-radius: 7px;
-  background-color: blue;
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
 `;
 
 const NoteTitle = styled.input`
   margin: 0;
-  font-size: 24px;
+  font-size: 22px;
   background-color: rgba(0, 0, 0, 0);
+  //   background-color: green;
   border: none;
+  font-weight: bold;
 `;
 
-const Text = styled.p`
+const Text = styled.textarea`
   margin: 5px 0;
   font-size: 18px;
+  color: var(--black);
   background-color: rgba(0, 0, 0, 0);
-  background-color: hotpink;
+  //   background-color: hotpink;
   min-height: 120px;
+  border-radius: 4px;
+  border: 1px solid var(--orange);
 `;
 
 const BtnContainer = styled.div`
   width: 100%;
   height: 22px;
-  background-color: yellow;
+  //   background-color: yellow;
+  background-color: rgba(0, 0, 0, 0);
   display: flex;
   justify-content: flex-end;
   gap: 15px;
@@ -54,20 +57,16 @@ const Btn = styled.button`
   }
 `;
 
-const SingleNote = ({ title, text }) => {
-  return (
+const SingleNote = ({ title, text, saveNote, onTitleChange, onTextChange }) => {
+  
+    return (
     <div>
       <Note>
-        <NoteTitle type="text" placeholder="Title" contentEditable='true'>{title}</NoteTitle>
-        <Text
-        //   onKeyDown={handleKeyDown}
-          contentEditable="true"
-          id="newNote"
-        >{text}</Text>
+        <NoteTitle onChange={onTitleChange} value={title} type="text" placeholder="Note Title" contentEditable="true">
+        </NoteTitle>
+        <Text onChange={onTextChange} value={text} />
         <BtnContainer>
-          <Btn>Delete</Btn>
-          <Btn>Save</Btn>
-          {/* <Btn onClick={createNote}>Save</Btn> */}
+          <Btn onClick={saveNote}>Save</Btn>
         </BtnContainer>
       </Note>
     </div>
