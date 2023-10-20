@@ -4,13 +4,13 @@ import { useState } from "react";
 const NoteDiv = styled.div`
   background-color: rgba(0, 0, 0, 0);
   background-color: var(--green);
-  width: 200px;
+  width: 90%;
   height: fit-content;
   padding: 8px;
   border-radius: 7px;
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 20px auto;
 `;
 
 const Title = styled.textarea`
@@ -67,6 +67,8 @@ function AddNote({ handleAddNote }) {
   const [noteTitle, setNoteTitle] = useState("");
   const [noteText, setNoteText] = useState("");
 
+  const remaining = 200 - noteText.length;
+
   const handleTitleChange = (event) => {
     setNoteTitle(event.target.value);
   };
@@ -76,14 +78,16 @@ function AddNote({ handleAddNote }) {
   };
 
   const handleSaveClick = () => {
-    if ((noteTitle.trim() !== '') && (noteText.trim() !== '')) {
-        handleAddNote(noteTitle, noteText)
-        setNoteTitle('');
-        setNoteText('');
+    if (noteTitle.trim() !== "" && noteText.trim() !== "" && noteText.length < 201) {
+      handleAddNote(noteTitle, noteText);
+      setNoteTitle("");
+      setNoteText("");
+    } else if (noteText.length > 200) {
+        alert('You have a way with words! Mind the 200 character limit...')
     } else {
-        alert('It looks like your note is empty...')
+      alert("It looks like your note is empty...");
     }
-  }
+  };
 
   return (
     <NoteDiv>
@@ -98,7 +102,7 @@ function AddNote({ handleAddNote }) {
         placeholder="Type to add a note..."
       ></Text>
       <FooterContainer>
-        <CharCount>200 characters</CharCount>
+        <CharCount>{remaining} characters left</CharCount>
         <Btn onClick={handleSaveClick}>Save</Btn>
       </FooterContainer>
     </NoteDiv>

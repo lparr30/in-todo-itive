@@ -3,7 +3,7 @@ import styled from "styled-components";
 const NoteDiv = styled.div`
   background-color: rgba(0, 0, 0, 0);
   background-color: var(--cream);
-  width: 200px;
+  width: 90%;
   height: fit-content;
   padding: 8px;
   border-radius: 7px;
@@ -24,7 +24,7 @@ const DropdownBtn = styled.button`
   height: 22px;
   color: var(--black);
   border: none;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 
   &:hover {
@@ -83,11 +83,15 @@ const Btn = styled.button`
 
 function Note({ id, title, text, date, handleDeleteNote }) {
 
+    const handleDropdown = () => {
+        
+    }
+
   return (
     <NoteDiv id={id}>
       <TopDiv>
         <Title>{title}</Title>
-        <DropdownBtn>⌵</DropdownBtn>
+        <DropdownBtn onClick={handleDropdown}>⌵</DropdownBtn>
       </TopDiv>
       <Text>{text}</Text>
       <FooterContainer>
