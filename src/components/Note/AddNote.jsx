@@ -4,7 +4,7 @@ import { useState } from "react";
 const NoteDiv = styled.div`
   background-color: rgba(0, 0, 0, 0);
   background-color: var(--green);
-  width: 90%;
+  width: 315px;
   height: fit-content;
   padding: 8px;
   border-radius: 7px;
