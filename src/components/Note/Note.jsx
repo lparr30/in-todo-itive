@@ -12,8 +12,6 @@ const NoteDiv = styled.div`
   display: flex;
   flex-direction: column;
   margin: 10px auto;
-
-  
 `;
 
 const TopDiv = styled.div`

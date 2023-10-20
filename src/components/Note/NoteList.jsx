@@ -1,7 +1,10 @@
 import Note from "./Note";
 import AddNote from "./AddNote";
+import { useState } from "react";
 
 function NoteList({ notes, handleAddNote, handleDeleteNote }) {
+//   const [dropdownClick, setDropdownClick] = useState(false);
+
   return (
     <div>
       <AddNote handleAddNote={handleAddNote} />
