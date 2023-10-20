@@ -4,7 +4,8 @@ import "../../variables.css";
 import TodoCheckboxes from "../TodoCheckboxes";
 
 const TaskContainer = styled.div`
-  background: lightBlue;
+  // background: lightBlue;
+  background-color: rgba(0,0,0,0);
   position: relative;
   width: 217.6px;
   // height: 112px;
@@ -40,8 +41,8 @@ const TextField = styled.input`
   width: 174px;
   height: 23px;
   font-size: 20px;
-  background-color: green;
-  // background-color: rgba(0,0,0,0);
+  // background-color: green;
+  background-color: rgba(0,0,0,0.1);
   color: rgb(22, 22, 22);
   border: 1px solid var(--black) !important;
   border: none;
@@ -66,7 +67,7 @@ const Add = styled.button`
 `;
 
 
-const WeekTasks = ({ editClick, expandedCardHeight, setExpandedCardHeight }) => {
+const WeekTasks = ({ editClick, setExpandedCardHeight }) => {
   const [val, setVal] = useState('');
   const [tasks, setTasks] = useState([]);
 
