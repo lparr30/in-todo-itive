@@ -9,9 +9,39 @@ const NoteDiv = styled.div`
   border-radius: 7px;
   display: flex;
   flex-direction: column;
+  margin: 10px;
 `;
 
-const Text = styled.textarea`
+const TopDiv = styled.div`
+  background-color: rgba(0, 0, 0, 0);
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const DropdownBtn = styled.button`
+  background-color: rgba(0, 0, 0, 0);
+  height: 22px;
+  color: var(--black);
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+const Title = styled.span`
+  margin: 5px 0;
+  font-size: 20px;
+  color: var(--black);
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0);
+  //   background-color: purple;
+`;
+
+const Text = styled.span`
   margin: 5px 0;
   font-size: 18px;
   color: var(--black);
@@ -34,8 +64,8 @@ const FooterContainer = styled.div`
 `;
 
 const NoteDate = styled.span`
-    background-color: rgba(0,0,0,0);
-`
+  background-color: rgba(0, 0, 0, 0);
+`;
 
 const Btn = styled.button`
   background-color: var(--blackTranslucent);
@@ -45,29 +75,27 @@ const Btn = styled.button`
   color: var(--cream);
   border: none;
   border-radius: 7px;
-//   margin-bottom: 4px;
 
   &:hover {
     cursor: pointer;
   }
 `;
 
-function Note() {
-    
-    const date = new Date()
-    const month = date.getMonth();
-    const day = date.getDate();
-    const year = date.getFullYear();
-    
-    return(
+function Note({ id, title, text, date, handleDeleteNote }) {
 
-    <NoteDiv>
-        <Text value='the first note'/>
-        <FooterContainer>
-            <NoteDate>{month}/{day}/{year}</NoteDate>
-            <Btn>Delete</Btn>
-        </FooterContainer>
+  return (
+    <NoteDiv id={id}>
+      <TopDiv>
+        <Title>{title}</Title>
+        <DropdownBtn>⌵</DropdownBtn>
+      </TopDiv>
+      <Text>{text}</Text>
+      <FooterContainer>
+        <NoteDate>{date}</NoteDate>
+        <Btn onClick={() => handleDeleteNote(id)}>Delete</Btn>
+      </FooterContainer>
     </NoteDiv>
-)}
+  );
+}
 
 export default Note;
