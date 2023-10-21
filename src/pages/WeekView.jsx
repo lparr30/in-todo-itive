@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
-import WeekCard from "../../components/WeekCard/WeekCard";
-import colors from "../../assets/colors";
-import months from "../../assets/months";
-import weekdays from "../../assets/weekdays";
+import WeekCard from "../components/WeekCard/WeekCard";
+import colors from "../assets/colors";
+import months from "../assets/months";
+import weekdays from "../assets/weekdays";
 
 const Layout = styled.div`
   display: flex;
