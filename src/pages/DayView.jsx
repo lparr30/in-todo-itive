@@ -1,16 +1,20 @@
 import { styled } from "styled-components";
 import Dates from "../components/DayView/Dates";
+import TodoList from "../components/DayView/TodoList";
 
 const Layout = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 `;
 
 const TaskDiv = styled.div`
   background-color: lightgreen;
+  // background-color: rgba(0,0,0,0);
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
   min-height: 500px;
   //   flex-grow: 1;
@@ -43,10 +47,12 @@ const DayView = () => {
   return (
     <Layout>
       <Dates />
-      <TaskDiv>tasks</TaskDiv>
-      <BtnDiv>
+      <TaskDiv>
+        <TodoList />
+      </TaskDiv>
+      {/* <BtnDiv>
         <NewTodoBtn>New Todo</NewTodoBtn>
-      </BtnDiv>
+      </BtnDiv> */}
     </Layout>
   );
 };

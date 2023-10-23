@@ -49,7 +49,7 @@ const TodoCheckboxes = ({ task, index, editClick, deleteTask }) => {
 
   return (
     <TaskContainer onClick={handleDeleteTask}>
-      {!editClick && <Checkbox value={task} type="checkbox" />}
+      {!editClick && <Checkbox value={task} type="checkbox"/>}
       {editClick && <Btn onClick={() => deleteTask(index)}>x</Btn>}
       <span contentEditable={editClick ? true : false} style={{backgroundColor: 'rgba(0,0,0,0)', paddingLeft: '3px'}}>{task}</span>
     </TaskContainer>

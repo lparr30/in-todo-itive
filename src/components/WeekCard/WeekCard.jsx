@@ -37,6 +37,8 @@ const ButtonsContainer = styled.div`
 const Btn = styled.button`
   // visibility: ${(props) => props.$newItemVisibility};
   background-color: var(--blackTranslucent);
+font-size: 16px;
+
   width: fit-content;
   height: 22px;
   padding: 0 4px;

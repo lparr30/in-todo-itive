@@ -5,8 +5,9 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  background-color: lightblue;
+  background-color: purple;
   background-color: rgba(0, 0, 0, 0);
+width: 100%;
   padding: 6px 0;
   margin-bottom: 10px;
 `;
@@ -18,7 +19,6 @@ const RowDiv = styled.div`
   background-color: pink;
   background-color: rgba(0, 0, 0, 0);
   padding: 0 6px;
-//   margin-bottom: 10px;
 `;
 
 const TodayDiv = styled.div`
@@ -27,6 +27,7 @@ const TodayDiv = styled.div`
     align-items: center;
     gap: 8px;
     background-color: rgba(0,0,0,0);
+    // background-color: lightblue;
 `
 
 const Dot = styled.span`
